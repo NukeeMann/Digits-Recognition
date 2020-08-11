@@ -2,8 +2,8 @@ from timeit import default_timer as timer
 from Interface import *
 
 if __name__ == "__main__":
-    number_of_nodes = 16
-    training_epos = 5
+    number_of_nodes = 80
+    training_epos = 20
     program = Window()
 
     predict_b = False
