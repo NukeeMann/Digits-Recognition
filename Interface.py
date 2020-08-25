@@ -104,7 +104,7 @@ class Window:
         X_train, Y_train, X_test, Y_test = self.nn.load_database()
 
         # Calling function to train our neural network in given epos
-        end, start = self.nn.nn_training(X_train, Y_train, epos)
+        end, start = self.nn.nn_training(X_train, Y_train, X_test, Y_test, epos)
 
         # Print accuracy
         print("Handwriting recognition accuracy")
