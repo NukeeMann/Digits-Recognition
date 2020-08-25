@@ -36,11 +36,11 @@ class NeuralNetwork:
 
     # Our neural network with 2 hidden layers that takes vector of images as an input
     @staticmethod
-    def build_neural_network(input_variables=input_var, num_of_nodes=800):
+    def build_neural_network(input_variables=input_var, num_of_nodes=21):
         # Input layer that takes input data. One index in vector determines one matrix of image
         layer_input = lsg.layers.InputLayer(shape=(None, 1, 28, 28), input_var=input_variables)
         # We drop 50% of wages to avoid overfitting
-        layer_input_drop = lsg.layers.DropoutLayer(layer_input, p=0.00)
+        layer_input_drop = lsg.layers.DropoutLayer(layer_input, p=0.50)
 
         # First hidden layer. 800 nodes. Takes Input layer as a input. rectify function.
         layer_hidden_1 = lsg.layers.DenseLayer(layer_input_drop,
@@ -127,14 +127,16 @@ class NeuralNetwork:
         return train_fn
 
     # Training neural network
-    def nn_training(self, x_train, y_train, epos):
+    def nn_training(self, x_train, y_train, X_test, Y_test, epos):
         from timeit import default_timer as timer
 
         time_start = timer()
         # Neural Network learning process
         for step in range(epos):
             train_err = self.training_fn(x_train, y_train)
-            print("Current step is " + str(step))
+            if step % 10 == 0:
+                print("Current step is " + str(step))
+                print("Train-error: " + str(train_err) + "  Train-acc: " + str(self.acc_fn(X_test, Y_test) * 100) + "%\n")
         time_end = timer()
 
         return time_end, time_start
