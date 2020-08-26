@@ -1,4 +1,4 @@
-from Neural_Network import *
+from Neural_Network_SI import *
 import pygame
 import random
 
@@ -98,20 +98,17 @@ class Window:
 
     def set_neural_network(self, num_od_nodes=16, epos=5):
         # Declaring our neural network
-        self.nn = NeuralNetwork(num_od_nodes)
+        self.nn = NeuralNetwork(num_od_nodes, alpha_val=2, img_size=784, number_of_labels=10)
 
         # Loading database
         X_train, Y_train, X_test, Y_test = self.nn.load_database()
 
         # Calling function to train our neural network in given epos
-        end, start = self.nn.nn_training(X_train, Y_train, X_test, Y_test, epos)
+        end, start = self.nn.train_nn(X_train, Y_train, X_test, Y_test, epos, batch_size=100)
 
-        # Print accuracy
-        print("Handwriting recognition accuracy")
-        print(str(self.nn.acc_fn(X_test, Y_test) * 100) + "%")
         print("Time: " + str(end - start))
 
     def predict(self):
         if self.nn is None:
             return
-        self.results = self.nn.pr_fn([self.rect])
+        self.results = self.nn.predict(self.rect)
