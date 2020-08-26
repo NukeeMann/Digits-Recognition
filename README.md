@@ -3,7 +3,7 @@ There now two branches.
 
 + master
   - Where neural network is build using listed below libraries.
-+ self-implemented
++ self-implementation
   - There I have made my own neural network without using any libraries like Lasagne. Everything there was made from scratch including training function, activation functions (tanh and softmax) and defining layers with weights.
   
   
