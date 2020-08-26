@@ -7,7 +7,7 @@ There now two branches.
   - There I have made my own neural network without using any libraries like Lasagne. Everything there was made from scratch including training function, activation functions (tanh and softmax) and defining layers with weights.
   
   
-I have set self-implemented branch as default one beacuse it's something that I'm more proud of.
+I have set self-implementation branch as default one beacuse it's something that I'm more proud of.
 
 # Digits-Recognition
 Simple deep learning project for handwritten digit recognition with feature that allows to quickly creat your own digits.
