@@ -28,7 +28,7 @@ Simple deep learning project for handwritten digit recognition with feature that
 The database that our network is learning on comes from MNIST which provides us with training set of 60 thousand examples and test set of 10 thousand examples. If files are missing, our program will download them automatically. Then we reshape the data to 28x28 pixels format wich will represent our digits. To every sample there is assigned label that tells which number it is.
 
 ## Neural network
-Our neural netowkr is made of 4 layers - Input layer, 2 hidden layers and output layer.
+Our neural network is made of 4 layers - Input layer, 2 hidden layers and output layer.
 Input layer has 784 nodes - 28x28 pixels converted to vector of 784 values.
 Number of nodes for our two hidden layers are declared in the beginning of our program and we can adjust it.
 Output layer has 10 nodes which represent 10 possible digits.
