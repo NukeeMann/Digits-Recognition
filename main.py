@@ -2,8 +2,11 @@ from timeit import default_timer as timer
 from Interface import *
 
 if __name__ == "__main__":
-    number_of_nodes = 21
-    training_epos = 40
+    number_of_layers = 3
+    training_epos = 5
+    learning_rate = 1e-1
+    batch_size = 64
+    training_epos = 5
     program = Window()
 
     predict_b = False
@@ -29,7 +32,8 @@ if __name__ == "__main__":
                     if 17 < px < 167:
                         program.button_clear()
                     elif 180 < px < 330:
-                        program.button_train(number_of_nodes, training_epos)
+                        program.button_train(n_layers=number_of_layers, b_size=batch_size,
+                                             n_epos=training_epos, l_rate=learning_rate)
                     elif 343 < px < 493 and predict_b is False:
                         start_time = timer()
                         predict_b = True

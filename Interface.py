@@ -38,7 +38,7 @@ class Window:
         text_results = font_2.render('Results:', True, (255, 255, 255))
         self.screen.blit(text_results, (580, 17))
 
-        self.rect = np.zeros(shape=(1, 28, 28), dtype=float)
+        self.rect = np.zeros(shape=(1, 28, 28, 1), dtype=float)
         self.results = np.zeros(shape=(1, 10), dtype=float)
 
         self.update_results()
@@ -85,19 +85,20 @@ class Window:
             for x in range(0, 28):
                 pygame.draw.rect(self.screen, (255, 255, 255), (17 * y + 17, 17 * x + 17, 16, 16))
 
-        self.rect = np.zeros(shape=(1, 28, 28), dtype=float)
+        self.rect = np.zeros(shape=(1, 28, 28, 1), dtype=float)
 
-    def button_train(self, n_nodes, n_epos):
+    def button_train(self, n_layers, b_size, n_epos, l_rate):
         # Window to set number of nodes and eposes
-        self.set_neural_network(num_od_nodes=n_nodes, epos=n_epos)
+        self.set_neural_network(number_of_layers=n_layers, batch_size=b_size, epos=n_epos, learning_rate=l_rate)
 
     def button_predict(self):
         self.predict()
         # Update results
         self.update_results()
 
-    def set_neural_network(self, num_od_nodes=16, epos=5):
+    def set_neural_network(self, number_of_layers=3, batch_size=64, epos=5, learning_rate=1e-1):
         # Declaring our neural network
+<<<<<<< Updated upstream
         self.nn = NeuralNetwork(num_od_nodes, alpha_val=2, img_size=784, number_of_labels=10)
 
         # Loading database
@@ -106,9 +107,24 @@ class Window:
         # Calling function to train our neural network in given epos
         end, start = self.nn.train_nn(X_train, Y_train, X_test, Y_test, epos, batch_size=100)
 
+=======
+        self.nn = NeuralNetwork(number_of_layers=number_of_layers, learning_rate=learning_rate)
+
+        # Calling function to train our neural network in given epos
+        end, start = self.nn.nn_training(batch_size, epos)
+
+        # Test accuracy
+        self.nn.acc_fn()
+
+        # Print accuracy
+>>>>>>> Stashed changes
         print("Time: " + str(end - start))
 
     def predict(self):
         if self.nn is None:
             return
+<<<<<<< Updated upstream
         self.results = self.nn.predict(self.rect)
+=======
+        self.results = self.nn.pr_fn([[self.rect]])
+>>>>>>> Stashed changes
