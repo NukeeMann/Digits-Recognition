@@ -1,4 +1,4 @@
-from Neural_Network_SI import *
+from Neural_Network import *
 import pygame
 import random
 
@@ -98,16 +98,6 @@ class Window:
 
     def set_neural_network(self, number_of_layers=3, batch_size=64, epos=5, learning_rate=1e-1):
         # Declaring our neural network
-<<<<<<< Updated upstream
-        self.nn = NeuralNetwork(num_od_nodes, alpha_val=2, img_size=784, number_of_labels=10)
-
-        # Loading database
-        X_train, Y_train, X_test, Y_test = self.nn.load_database()
-
-        # Calling function to train our neural network in given epos
-        end, start = self.nn.train_nn(X_train, Y_train, X_test, Y_test, epos, batch_size=100)
-
-=======
         self.nn = NeuralNetwork(number_of_layers=number_of_layers, learning_rate=learning_rate)
 
         # Calling function to train our neural network in given epos
@@ -117,14 +107,9 @@ class Window:
         self.nn.acc_fn()
 
         # Print accuracy
->>>>>>> Stashed changes
         print("Time: " + str(end - start))
 
     def predict(self):
         if self.nn is None:
             return
-<<<<<<< Updated upstream
-        self.results = self.nn.predict(self.rect)
-=======
         self.results = self.nn.pr_fn([[self.rect]])
->>>>>>> Stashed changes
