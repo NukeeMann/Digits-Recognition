@@ -1,10 +1,11 @@
 # Update
-There now two branches.
-
+There are three branches.
++ tensorflow
+  - Convolutional Neural Network (CNN) made using TensorFlow library. 
 + master
-  - Where neural network is build using listed below libraries.
+  - Where neural network is build using Lasagne library.
 + self-implementation
-  - There I have made my own neural network without using any libraries like Lasagne. Everything there was made from scratch including training function, activation functions (tanh and softmax) and defining layers with weights.
+  - There I have made my own neural network without using any libraries like Lasagne or TensorFlow. Everything there was made from scratch including training function, activation functions (tanh and softmax) and defining layers with weights.
   
   
 I have set self-implementation branch as default one beacuse it's something that I'm more proud of.
@@ -15,14 +16,16 @@ Simple deep learning project for handwritten digit recognition with feature that
 ![Program](https://github.com/NukeeMann/Digits-Recognition/blob/master/img/dr1.PNG)
 
 ## Used libraries
-+ Lasagne 
-  - for building our neural network
++ Lasagne and TensorFlow
+  - for building our neural networks
 + Theano and NumPy
   - for mathematical operations
 + OS
   - for MNIST database downloading
 + Pygame
   - for user friendly interface
++ Timeit
+  - for learning time measure
   
 ## Database
 The database that our network is learning on comes from MNIST which provides us with training set of 60 thousand examples and test set of 10 thousand examples. If files are missing, our program will download them automatically. Then we reshape the data to 28x28 pixels format wich will represent our digits. To every sample there is assigned label that tells which number it is.
